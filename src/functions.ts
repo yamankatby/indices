@@ -1,24 +1,20 @@
-export function push<S>(source: S[], ...elements: S[]): S[] {
+export const push = <S = any>(source: S[]) => (...elements: S[]): S[] => {
 	return [...source, ...elements];
-}
-
-export function unshift<S>(source: S[], ...elements: S[]): S[] {
+};
+export const unshift = <S = any>(source: S[]) => (...elements: S[]): S[] => {
 	return [...elements, ...source];
-}
-
-export function pop<S>(source: S[], count: number = 1): S[] {
+};
+export const pop = <S = any>(source: S[]) => (count: number = 1): S[] => {
 	return source.slice(0, source.length - count);
-}
-
-export function shift<S>(source: S[], count: number = 1): S[] {
+};
+export const shift = <S = any>(source: S[]) => (count: number = 1): S[] => {
 	return source.slice(count);
-}
+};
 
-export function replace<S>(
-	source: S[],
+export const replace = <S = any>(source: S[]) => (
 	predicate: number | ((element: S) => boolean),
 	callback: S | ((prevElement: S) => S),
-): S[] {
+): S[] => {
 	const index = typeof predicate === 'number' ? predicate : source.findIndex(predicate);
 	if (index === -1) {
 		return source;
@@ -26,36 +22,30 @@ export function replace<S>(
 	const element =
 		typeof callback === 'function' ? callback.call(undefined, source[index]) : callback;
 	return [...source.slice(0, index), element, ...source.slice(index + 1)];
-}
-
-export function insertAfter<S>(
-	source: S[],
+};
+export const insertAfter = <S = any>(source: S[]) => (
 	predicate: number | ((element: S) => boolean),
 	...elements: S[]
-): S[] {
+): S[] => {
 	const index = typeof predicate === 'number' ? predicate : source.findIndex(predicate);
 	if (index === -1) {
 		return source;
 	}
 	return [...source.slice(0, index + 1), ...elements, ...source.slice(index + 1)];
-}
-
-export function insertBefore<S>(
-	source: S[],
+};
+export const insertBefore = <S = any>(source: S[]) => (
 	predicate: number | ((element: S) => boolean),
 	...elements: S[]
-): S[] {
+): S[] => {
 	const index = typeof predicate === 'number' ? predicate : source.findIndex(predicate);
 	if (index === -1) {
 		return source;
 	}
 	return [...source.slice(0, index), ...elements, ...source.slice(index)];
-}
-
-export function remove<S>(
-	source: S[],
+};
+export const remove = <S = any>(source: S[]) => (
 	predicate: number | number[] | ((element: S) => boolean),
-): S[] {
+): S[] => {
 	return source.filter((element, index) =>
 		typeof predicate === 'number'
 			? index === predicate
@@ -65,4 +55,4 @@ export function remove<S>(
 				? predicate.includes(index)
 				: false,
 	);
-}
+};
