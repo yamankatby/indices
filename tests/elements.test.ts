@@ -1,5 +1,5 @@
 import { deepFreeze } from '../src/utilities';
-import { elements } from '../src/elements';
+import { Elements, elements } from '../src/elements';
 
 it('(elements.push) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
@@ -264,4 +264,11 @@ it('(elements.remove) can remove multi elements, (predicate)', () => {
 			.remove(element => element > 3)
 			.toArray(),
 	).toEqual(target);
+});
+
+it('(elements.isElementsObject) can check if the object is an elements object or not', () => {
+	expect(elements.isElementsObject(elements())).toBe(true);
+	expect(elements.isElementsObject({})).toBe(false);
+	expect(Elements.isElementsObject(elements())).toBe(true);
+	expect(Elements.isElementsObject({})).toBe(false);
 });

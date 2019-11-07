@@ -59,3 +59,4 @@ export class Elements<S = any> {
 }
 
 export const elements = <S = any>(source?: S[]) => new Elements(source);
+elements.isElementsObject = isElementsObject;
