@@ -1,15 +1,9 @@
 {
-  "name": "tuple-js",
+  "name": "indices",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest --config jestconfig.json"
-  },
-  "devDependencies": {
-    "@types/jest": "^24.0.22",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.7.2"
   }
 }
