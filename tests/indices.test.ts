@@ -1,5 +1,5 @@
 import { deepFreeze } from '../src/utilities';
-import { Elements, elements } from '../src/elements';
+import { Indices, indices } from '../src';
 
 it('(elements.push) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
@@ -7,7 +7,7 @@ it('(elements.push) can add single element', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.push(1)
 			.toArray(),
 	).toEqual(target);
@@ -18,7 +18,7 @@ it('(elements.push) can add multi elements', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.push(1, 2)
 			.toArray(),
 	).toEqual(target);
@@ -29,7 +29,7 @@ it('(elements.unshift) can add single element', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.unshift(1)
 			.toArray(),
 	).toEqual(target);
@@ -40,7 +40,7 @@ it('(elements.unshift) can add multi elements', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.unshift(1, 2)
 			.toArray(),
 	).toEqual(target);
@@ -51,7 +51,7 @@ it('(elements.pop) can remove single element', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.pop()
 			.toArray(),
 	).toEqual(target);
@@ -62,7 +62,7 @@ it('(elements.pop) can remove multi elements', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.pop(3)
 			.toArray(),
 	).toEqual(target);
@@ -73,7 +73,7 @@ it('(elements.shift) can add single element', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.shift()
 			.toArray(),
 	).toEqual(target);
@@ -84,7 +84,7 @@ it('(elements.shift) can add multi elements', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.shift(3)
 			.toArray(),
 	).toEqual(target);
@@ -95,7 +95,7 @@ it('(elements.replace) can replace an element with another. (index, element)', (
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.replace(1, 3)
 			.toArray(),
 	).toEqual(target);
@@ -106,7 +106,7 @@ it('(elements.replace) can replace an element with another. (index, callbackfn)'
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.replace(1, prevElement => prevElement + 1)
 			.toArray(),
 	).toEqual(target);
@@ -117,7 +117,7 @@ it('(elements.replace) can replace an element with another. (predicate, element)
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.replace(element => element === 2, 3)
 			.toArray(),
 	).toEqual(target);
@@ -128,7 +128,7 @@ it('(elements.replace) can replace an element with another. (predicate, callback
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.replace(element => element === 2, prevElement => prevElement + 1)
 			.toArray(),
 	).toEqual(target);
@@ -139,7 +139,7 @@ it('(elements.insertAfter) can insert single element after another. (index, elem
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertAfter(1, 3)
 			.toArray(),
 	).toEqual(target);
@@ -150,7 +150,7 @@ it('(elements.insertAfter) can insert multi elements after another. (index, elem
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertAfter(1, 3, 4, 5)
 			.toArray(),
 	).toEqual(target);
@@ -161,7 +161,7 @@ it('(elements.insertAfter) can insert single element after another. (predicate, 
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertAfter(element => element === 2, 3)
 			.toArray(),
 	).toEqual(target);
@@ -172,7 +172,7 @@ it('(elements.insertAfter) can insert multi elements after another. (predicate, 
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertAfter(element => element === 2, 3, 4, 5)
 			.toArray(),
 	).toEqual(target);
@@ -183,7 +183,7 @@ it('(elements.insertBefore) can insert single element before another. (index, el
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertBefore(1, 1)
 			.toArray(),
 	).toEqual(target);
@@ -194,7 +194,7 @@ it('(elements.insertBefore) can insert multi elements before another. (index, el
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertBefore(1, 1, 2, 3)
 			.toArray(),
 	).toEqual(target);
@@ -205,7 +205,7 @@ it('(elements.insertBefore) can insert single element before another. (predicate
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertBefore(element => element === 2, 1)
 			.toArray(),
 	).toEqual(target);
@@ -216,7 +216,7 @@ it('(elements.insertBefore) can insert multi elements before another. (predicate
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.insertBefore(element => element === 2, 1, 2, 3)
 			.toArray(),
 	).toEqual(target);
@@ -227,7 +227,7 @@ it('(elements.remove) can remove single element, (index)', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.remove(1)
 			.toArray(),
 	).toEqual(target);
@@ -238,7 +238,7 @@ it('(elements.remove) can remove multi elements, (indices)', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.remove([1, 2, 3])
 			.toArray(),
 	).toEqual(target);
@@ -249,7 +249,7 @@ it('(elements.remove) can remove single element, (predicate)', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.remove(element => element === 3)
 			.toArray(),
 	).toEqual(target);
@@ -260,15 +260,15 @@ it('(elements.remove) can remove multi elements, (predicate)', () => {
 	deepFreeze(source);
 
 	expect(
-		elements(source)
+		indices(source)
 			.remove(element => element > 3)
 			.toArray(),
 	).toEqual(target);
 });
 
 it('(elements.isElementsObject) can check if the object is an elements object or not', () => {
-	expect(elements.isElements(elements())).toBe(true);
-	expect(elements.isElements({})).toBe(false);
-	expect(Elements.isElements(elements())).toBe(true);
-	expect(Elements.isElements({})).toBe(false);
+	expect(indices.isIndices(indices())).toBe(true);
+	expect(indices.isIndices({})).toBe(false);
+	expect(Indices.isIndices(indices())).toBe(true);
+	expect(Indices.isIndices({})).toBe(false);
 });

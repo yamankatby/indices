@@ -1,14 +1,13 @@
 import { insertAfter, insertBefore, pop, push, remove, replace, shift, unshift } from './functions';
-import { isElements } from './isElements';
+import { isIndices } from './isIndices';
 
-export class Elements<S = any> {
+export class Indices<S = any> {
+	public static isIndices = isIndices;
+	private source: S[] = [];
+
 	constructor(source?: S[]) {
 		if (source) this.source = source;
 	}
-
-	public static isElements = isElements;
-
-	private source: S[] = [];
 
 	public push = (...elements: S[]) => {
 		this.source = push(this.source, ...elements);
@@ -58,5 +57,5 @@ export class Elements<S = any> {
 	public toArray = () => this.source;
 }
 
-export const elements = <S = any>(source?: S[]) => new Elements(source);
-elements.isElements = isElements;
+export const indices = <S = any>(source?: S[]) => new Indices(source);
+indices.isIndices = isIndices;

@@ -1,3 +1,3 @@
-export const helloWorld = () => {
-	console.log('');
-};
+import { Indices, indices } from './indices';
+
+export { Indices, indices };

@@ -1,4 +1,4 @@
-export const isElements = (object: any) => {
+export const isIndices = (object: any) => {
 	return !!object &&
 		(!!object.push && typeof object.push === 'function') &&
 		(!!object.unshift && typeof object.unshift === 'function') &&
