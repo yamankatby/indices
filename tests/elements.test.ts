@@ -267,8 +267,8 @@ it('(elements.remove) can remove multi elements, (predicate)', () => {
 });
 
 it('(elements.isElementsObject) can check if the object is an elements object or not', () => {
-	expect(elements.isElementsObject(elements())).toBe(true);
-	expect(elements.isElementsObject({})).toBe(false);
-	expect(Elements.isElementsObject(elements())).toBe(true);
-	expect(Elements.isElementsObject({})).toBe(false);
+	expect(elements.isElements(elements())).toBe(true);
+	expect(elements.isElements({})).toBe(false);
+	expect(Elements.isElements(elements())).toBe(true);
+	expect(Elements.isElements({})).toBe(false);
 });

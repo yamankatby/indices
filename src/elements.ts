@@ -1,12 +1,12 @@
 import { insertAfter, insertBefore, pop, push, remove, replace, shift, unshift } from './functions';
-import { isElementsObject } from './isElementsObject';
+import { isElements } from './isElements';
 
 export class Elements<S = any> {
 	constructor(source?: S[]) {
 		if (source) this.source = source;
 	}
 
-	public static isElementsObject = isElementsObject;
+	public static isElements = isElements;
 
 	private source: S[] = [];
 
@@ -59,4 +59,4 @@ export class Elements<S = any> {
 }
 
 export const elements = <S = any>(source?: S[]) => new Elements(source);
-elements.isElementsObject = isElementsObject;
+elements.isElements = isElements;
