@@ -1,8 +1,13 @@
 {
   "name": "indices",
-  "version": "0.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "author": "Yaman KATBY <m.yaman.katby@gmail.com> (https://yaman.idewaxa.com/)",
   "license": "MIT",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json"
