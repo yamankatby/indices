@@ -1,35 +1,23 @@
-export const forIn = <S>(source: S, callbackFn: (key: keyof S, value: S[keyof S], index: number) => void) => {
-	Object.getOwnPropertyNames(source).forEach((_, index) => {
-		const key = _ as keyof S;
-		callbackFn(key, source[key], index);
-	});
-};
-
-export const mapIn = <S, R>(source: S, predicate: (key: keyof S, value: S[keyof S], index: number) => R) => {
-	const result: R[] = [];
-	forIn(source, ((key, value, index) => {
-		result.push(predicate(key, value, index));
-	}));
-
-	return result;
-};
-
-export const deepFreeze = <T>(source: T) => {
-	if (typeof source !== 'object' || source === null) {
+export function deepFreeze(source: any) {
+	if ((typeof source !== 'object' && typeof source !== 'function') || source === null) {
 		return;
 	}
 
 	Object.freeze(source);
-	forIn(source, (key, value) => {
-		// @ts-ignore
-		if (source.hasOwnProperty(key) && typeof value === 'object' && value !== null && !Object.isFrozen(value)) {
-			deepFreeze(source[key]);
+	Object.getOwnPropertyNames(source).forEach(function (propertyName) {
+		if (
+			source.hasOwnProperty(propertyName) &&
+			source[propertyName] !== null &&
+			(typeof source[propertyName] === 'object' || typeof source[propertyName] === 'function') &&
+			!Object.isFrozen(source[propertyName])
+		) {
+			deepFreeze(source[propertyName]);
 		}
 	});
-};
+}
 
-export const deepClone = <T>(source: T) => {
-	if (typeof source !== 'object' || source === null) {
+export function deepClone<S>(source: S) {
+	if ((typeof source !== 'object' && typeof source !== 'function') || source === null) {
 		return source;
 	}
 
@@ -41,10 +29,9 @@ export const deepClone = <T>(source: T) => {
 		});
 	} else {
 		result = {};
-		forIn(source, (key, value) => {
-			result[key] = deepClone(value);
+		Object.getOwnPropertyNames(source).forEach(function (propertyName) {
+			result[propertyName] = deepClone(source[propertyName as keyof S]);
 		});
 	}
-
-	return result as T;
-};
+	return result as S;
+}

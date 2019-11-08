@@ -1,13 +1,17 @@
 import { insertAfter, insertBefore, pop, push, remove, replace, shift, unshift } from './functions';
 import { isIndices } from './isIndices';
+import { deepClone, deepFreeze } from './utilities';
 
 export class Indices<S = any> {
-	public static isIndices = isIndices;
-	private source: S[] = [];
-
 	constructor(source?: S[]) {
 		if (source) this.source = source;
 	}
+
+	public static isIndices = isIndices;
+	public static deepFreeze = deepFreeze;
+	public static deepClone = deepClone;
+
+	private source: S[] = [];
 
 	public push(element: S): Indices<S>;
 	public push(...elements: S[]): Indices<S>;
@@ -88,5 +92,10 @@ export class Indices<S = any> {
 	}
 }
 
-export const indices = <S = any>(source?: S[]) => new Indices(source);
-indices.isIndices = isIndices;
+export function indices<S = any>(source?: S[]) {
+	return new Indices(source);
+}
+
+indices.isIndices = Indices.isIndices;
+indices.deepFreeze = Indices.deepFreeze;
+indices.deepClone = Indices.deepClone;
