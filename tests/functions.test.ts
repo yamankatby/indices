@@ -15,6 +15,7 @@ it('(push) can add multi elements', () => {
 	deepFreeze(source);
 	expect(push(source, 1, 2)).toEqual(target);
 });
+
 it('(unshift) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 1, 2, 3, 4, 5];
@@ -29,6 +30,7 @@ it('(unshift) can add multi elements', () => {
 	deepFreeze(source);
 	expect(unshift(source, 1, 2)).toEqual(target);
 });
+
 it('(pop) can remove single element', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 4];
@@ -43,6 +45,7 @@ it('(pop) can remove multi elements', () => {
 	deepFreeze(source);
 	expect(pop(source, 3)).toEqual(target);
 });
+
 it('(shift) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [2, 3, 4, 5];
@@ -57,6 +60,7 @@ it('(shift) can add multi elements', () => {
 	deepFreeze(source);
 	expect(shift(source, 3)).toEqual(target);
 });
+
 it('(replace) can replace an element with another. (index, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 3, 3, 4, 5];
@@ -87,6 +91,7 @@ it('(replace) can replace an element with another. (predicate, callbackfn)', () 
 		replace(source, element => element === 2, prevElement => prevElement + 1),
 	).toEqual(target);
 });
+
 it('(insertAfter) can insert single element after another. (index, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 3, 4, 5];
@@ -115,6 +120,7 @@ it('(insertAfter) can insert multi elements after another. (predicate, elements)
 	deepFreeze(source);
 	expect(insertAfter(source, element => element === 2, 3, 4, 5)).toEqual(target);
 });
+
 it('(insertBefore) can insert single element before another. (index, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 1, 2, 3, 4, 5];
@@ -143,6 +149,7 @@ it('(insertBefore) can insert multi elements before another. (predicate, element
 	deepFreeze(source);
 	expect(insertBefore(source, element => element === 2, 1, 2, 3)).toEqual(target);
 });
+
 it('(remove) can remove single element, (index)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 3, 4, 5];

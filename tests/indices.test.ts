@@ -1,7 +1,7 @@
 import { deepFreeze } from '../src/utilities';
 import { Indices, indices } from '../src';
 
-it('(elements.push) can add single element', () => {
+it('(indices.push) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 4, 5, 1];
 	deepFreeze(source);
@@ -12,7 +12,7 @@ it('(elements.push) can add single element', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.push) can add multi elements', () => {
+it('(indices.push) can add multi elements', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 4, 5, 1, 2];
 	deepFreeze(source);
@@ -23,7 +23,8 @@ it('(elements.push) can add multi elements', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.unshift) can add single element', () => {
+
+it('(indices.unshift) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 1, 2, 3, 4, 5];
 	deepFreeze(source);
@@ -34,7 +35,7 @@ it('(elements.unshift) can add single element', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.unshift) can add multi elements', () => {
+it('(indices.unshift) can add multi elements', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 1, 2, 3, 4, 5];
 	deepFreeze(source);
@@ -45,7 +46,8 @@ it('(elements.unshift) can add multi elements', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.pop) can remove single element', () => {
+
+it('(indices.pop) can remove single element', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 4];
 	deepFreeze(source);
@@ -56,7 +58,7 @@ it('(elements.pop) can remove single element', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.pop) can remove multi elements', () => {
+it('(indices.pop) can remove multi elements', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2];
 	deepFreeze(source);
@@ -67,7 +69,8 @@ it('(elements.pop) can remove multi elements', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.shift) can add single element', () => {
+
+it('(indices.shift) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [2, 3, 4, 5];
 	deepFreeze(source);
@@ -78,7 +81,7 @@ it('(elements.shift) can add single element', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.shift) can add multi elements', () => {
+it('(indices.shift) can add multi elements', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [4, 5];
 	deepFreeze(source);
@@ -89,7 +92,8 @@ it('(elements.shift) can add multi elements', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.replace) can replace an element with another. (index, element)', () => {
+
+it('(indices.replace) can replace an element with another. (index, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 3, 3, 4, 5];
 	deepFreeze(source);
@@ -100,7 +104,7 @@ it('(elements.replace) can replace an element with another. (index, element)', (
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.replace) can replace an element with another. (index, callbackfn)', () => {
+it('(indices.replace) can replace an element with another. (index, callbackfn)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 3, 3, 4, 5];
 	deepFreeze(source);
@@ -111,7 +115,7 @@ it('(elements.replace) can replace an element with another. (index, callbackfn)'
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.replace) can replace an element with another. (predicate, element)', () => {
+it('(indices.replace) can replace an element with another. (predicate, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 3, 3, 4, 5];
 	deepFreeze(source);
@@ -122,7 +126,7 @@ it('(elements.replace) can replace an element with another. (predicate, element)
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.replace) can replace an element with another. (predicate, callbackfn)', () => {
+it('(indices.replace) can replace an element with another. (predicate, callbackfn)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 3, 3, 4, 5];
 	deepFreeze(source);
@@ -133,7 +137,8 @@ it('(elements.replace) can replace an element with another. (predicate, callback
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertAfter) can insert single element after another. (index, element)', () => {
+
+it('(indices.insertAfter) can insert single element after another. (index, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 3, 4, 5];
 	deepFreeze(source);
@@ -144,7 +149,7 @@ it('(elements.insertAfter) can insert single element after another. (index, elem
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertAfter) can insert multi elements after another. (index, elements)', () => {
+it('(indices.insertAfter) can insert multi elements after another. (index, elements)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 4, 5, 3, 4, 5];
 	deepFreeze(source);
@@ -155,7 +160,7 @@ it('(elements.insertAfter) can insert multi elements after another. (index, elem
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertAfter) can insert single element after another. (predicate, element)', () => {
+it('(indices.insertAfter) can insert single element after another. (predicate, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 3, 4, 5];
 	deepFreeze(source);
@@ -166,7 +171,7 @@ it('(elements.insertAfter) can insert single element after another. (predicate, 
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertAfter) can insert multi elements after another. (predicate, elements)', () => {
+it('(indices.insertAfter) can insert multi elements after another. (predicate, elements)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3, 4, 5, 3, 4, 5];
 	deepFreeze(source);
@@ -177,7 +182,8 @@ it('(elements.insertAfter) can insert multi elements after another. (predicate, 
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertBefore) can insert single element before another. (index, element)', () => {
+
+it('(indices.insertBefore) can insert single element before another. (index, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 1, 2, 3, 4, 5];
 	deepFreeze(source);
@@ -188,7 +194,7 @@ it('(elements.insertBefore) can insert single element before another. (index, el
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertBefore) can insert multi elements before another. (index, elements)', () => {
+it('(indices.insertBefore) can insert multi elements before another. (index, elements)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 1, 2, 3, 2, 3, 4, 5];
 	deepFreeze(source);
@@ -199,7 +205,7 @@ it('(elements.insertBefore) can insert multi elements before another. (index, el
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertBefore) can insert single element before another. (predicate, element)', () => {
+it('(indices.insertBefore) can insert single element before another. (predicate, element)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 1, 2, 3, 4, 5];
 	deepFreeze(source);
@@ -210,7 +216,7 @@ it('(elements.insertBefore) can insert single element before another. (predicate
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.insertBefore) can insert multi elements before another. (predicate, elements)', () => {
+it('(indices.insertBefore) can insert multi elements before another. (predicate, elements)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 1, 2, 3, 2, 3, 4, 5];
 	deepFreeze(source);
@@ -221,7 +227,8 @@ it('(elements.insertBefore) can insert multi elements before another. (predicate
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.remove) can remove single element, (index)', () => {
+
+it('(indices.remove) can remove single element, (index)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 3, 4, 5];
 	deepFreeze(source);
@@ -232,7 +239,7 @@ it('(elements.remove) can remove single element, (index)', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.remove) can remove multi elements, (indices)', () => {
+it('(indices.remove) can remove multi elements, (indices)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 5];
 	deepFreeze(source);
@@ -243,7 +250,7 @@ it('(elements.remove) can remove multi elements, (indices)', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.remove) can remove single element, (predicate)', () => {
+it('(indices.remove) can remove single element, (predicate)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 4, 5];
 	deepFreeze(source);
@@ -254,7 +261,7 @@ it('(elements.remove) can remove single element, (predicate)', () => {
 			.toArray(),
 	).toEqual(target);
 });
-it('(elements.remove) can remove multi elements, (predicate)', () => {
+it('(indices.remove) can remove multi elements, (predicate)', () => {
 	const source = [1, 2, 3, 4, 5];
 	const target = [1, 2, 3];
 	deepFreeze(source);
@@ -266,7 +273,7 @@ it('(elements.remove) can remove multi elements, (predicate)', () => {
 	).toEqual(target);
 });
 
-it('(elements.isElementsObject) can check if the object is an elements object or not', () => {
+it('(indices.isIndices) can check if the object is an elements object or not', () => {
 	expect(indices.isIndices(indices())).toBe(true);
 	expect(indices.isIndices({})).toBe(false);
 	expect(Indices.isIndices(indices())).toBe(true);

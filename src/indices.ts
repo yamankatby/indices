@@ -1,6 +1,5 @@
 import { insertAfter, insertBefore, pop, push, remove, replace, shift, unshift } from './functions';
-import { isIndices } from './isIndices';
-import { deepClone, deepFreeze } from './utilities';
+import { deepClone, deepFreeze, isIndices } from './utilities';
 
 export class Indices<S = any> {
 	constructor(source?: S[]) {

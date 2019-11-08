@@ -1,37 +1,50 @@
-export function deepFreeze(source: any) {
-	if ((typeof source !== 'object' && typeof source !== 'function') || source === null) {
+export function isIndices(o: any) {
+	return !!o &&
+		(!!o.push && typeof o.push === 'function') &&
+		(!!o.unshift && typeof o.unshift === 'function') &&
+		(!!o.pop && typeof o.pop === 'function') &&
+		(!!o.shift && typeof o.shift === 'function') &&
+		(!!o.replace && typeof o.replace === 'function') &&
+		(!!o.insertAfter && typeof o.insertAfter === 'function') &&
+		(!!o.insertBefore && typeof o.insertBefore === 'function') &&
+		(!!o.remove && typeof o.remove === 'function') &&
+		(!!o.toArray && typeof o.toArray === 'function');
+}
+
+export function deepFreeze(o: any) {
+	if ((typeof o !== 'object' && typeof o !== 'function') || o === null) {
 		return;
 	}
 
-	Object.freeze(source);
-	Object.getOwnPropertyNames(source).forEach(function (propertyName) {
+	Object.freeze(o);
+	Object.getOwnPropertyNames(o).forEach(function (propertyName) {
 		if (
-			source.hasOwnProperty(propertyName) &&
-			source[propertyName] !== null &&
-			(typeof source[propertyName] === 'object' || typeof source[propertyName] === 'function') &&
-			!Object.isFrozen(source[propertyName])
+			o.hasOwnProperty(propertyName) &&
+			o[propertyName] !== null &&
+			(typeof o[propertyName] === 'object' || typeof o[propertyName] === 'function') &&
+			!Object.isFrozen(o[propertyName])
 		) {
-			deepFreeze(source[propertyName]);
+			deepFreeze(o[propertyName]);
 		}
 	});
 }
 
-export function deepClone<S>(source: S) {
-	if ((typeof source !== 'object' && typeof source !== 'function') || source === null) {
-		return source;
+export function deepClone<O>(o: O) {
+	if ((typeof o !== 'object' && typeof o !== 'function') || o === null) {
+		return o;
 	}
 
 	let result: any;
-	if (Array.isArray(source)) {
+	if (Array.isArray(o)) {
 		result = [];
-		source.forEach(element => {
+		o.forEach(element => {
 			result.push(deepClone(element));
 		});
 	} else {
 		result = {};
-		Object.getOwnPropertyNames(source).forEach(function (propertyName) {
-			result[propertyName] = deepClone(source[propertyName as keyof S]);
+		Object.getOwnPropertyNames(o).forEach(function (propertyName) {
+			result[propertyName] = deepClone(o[propertyName as keyof O]);
 		});
 	}
-	return result as S;
+	return result as O;
 }
