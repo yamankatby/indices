@@ -1,5 +1,5 @@
 import { deepFreeze } from '../src/utilities';
-import { insertAfter, insertBefore, pop, push, remove, replace, shift, unshift } from '../src/functions';
+import { insertAfter, insertBefore, pop, push, remove, replace, shift, unshift } from '../src/actions';
 
 it('(push) can add single element', () => {
 	const source = [1, 2, 3, 4, 5];
