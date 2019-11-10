@@ -53,7 +53,7 @@ export class Indices<S = any> {
 
 	public concat(target: S[]): Indices<S>;
 	public concat(target: S[]) {
-		actions.concat(this.source, target);
+		this.source = actions.concat(this.source, target);
 		return this;
 	}
 
