@@ -1,5 +1,6 @@
-import * as actions from './actions';
 import * as utilities from './utilities';
+import * as actions from './actions';
+import * as constructors from './constructors';
 
 export class Indices<S = any> {
 	public static push = actions.push;
@@ -102,7 +103,15 @@ export class Indices<S = any> {
 		return this;
 	}
 
-	public toArray(): S[] {
-		return this.source;
+	public toArray(): S[];
+	public toArray<R = any>(callback?: ((element: S) => R)): R[];
+	public toArray<R = any>(callback?: ((element: S) => R)) {
+		return constructors.toArray(this.source, callback);
+	}
+
+	public toSet(): Set<S>;
+	public toSet<R = any>(callback?: ((element: S) => R)): Set<R>;
+	public toSet<R = any>(callback?: ((element: S) => R)) {
+		return constructors.toSet(this.source, callback);
 	}
 }
