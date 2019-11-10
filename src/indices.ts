@@ -3,6 +3,10 @@ import * as actions from './actions';
 import * as constructors from './constructors';
 
 export class Indices<S = any> {
+	public static isIndices = utilities.isIndices;
+	public static deepFreeze = utilities.deepFreeze;
+	public static deepClone = utilities.deepClone;
+
 	public static push = actions.push;
 	public static unshift = actions.unshift;
 	public static pop = actions.pop;
@@ -12,10 +16,6 @@ export class Indices<S = any> {
 	public static insertAfter = actions.insertAfter;
 	public static insertBefore = actions.insertBefore;
 	public static remove = actions.remove;
-
-	public static isIndices = utilities.isIndices;
-	public static deepFreeze = utilities.deepFreeze;
-	public static deepClone = utilities.deepClone;
 
 	constructor(source?: S[]) {
 		if (source) this.source = source;
