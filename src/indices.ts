@@ -6,6 +6,7 @@ export class Indices<S = any> {
 	public static unshift = actions.unshift;
 	public static pop = actions.pop;
 	public static shift = actions.shift;
+	public static concat = actions.concat;
 	public static replace = actions.replace;
 	public static insertAfter = actions.insertAfter;
 	public static insertBefore = actions.insertBefore;
@@ -46,6 +47,12 @@ export class Indices<S = any> {
 	public shift(count: number): Indices<S>;
 	public shift(count = 1) {
 		this.source = actions.shift(this.source, count);
+		return this;
+	}
+
+	public concat(target: S[]): Indices<S>;
+	public concat(target: S[]) {
+		actions.concat(this.source, target);
 		return this;
 	}
 
@@ -99,35 +106,3 @@ export class Indices<S = any> {
 		return this.source;
 	}
 }
-
-export function indices<S = any>(source?: S[]) {
-	return new Indices(source);
-}
-
-export declare namespace indices {
-	let push: typeof actions.push;
-	let unshift: typeof actions.unshift;
-	let pop: typeof actions.pop;
-	let shift: typeof actions.shift;
-	let replace: typeof actions.replace;
-	let insertAfter: typeof actions.insertAfter;
-	let insertBefore: typeof actions.insertBefore;
-	let remove: typeof actions.remove;
-
-	let isIndices: typeof utilities.isIndices;
-	let deepFreeze: typeof utilities.deepFreeze;
-	let deepClone: typeof utilities.deepClone;
-}
-
-indices.push = actions.push;
-indices.unshift = actions.unshift;
-indices.pop = actions.pop;
-indices.shift = actions.shift;
-indices.replace = actions.replace;
-indices.insertAfter = actions.insertAfter;
-indices.insertBefore = actions.insertBefore;
-indices.remove = actions.remove;
-
-indices.isIndices = utilities.isIndices;
-indices.deepFreeze = utilities.deepFreeze;
-indices.deepClone = utilities.deepClone;

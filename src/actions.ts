@@ -22,6 +22,10 @@ export function shift<S = any>(source: S[], count: number = 1): S[] {
 	return source.slice(count);
 }
 
+export function concat<S = any>(source: S[], target: S[]): S[] {
+	return source.concat(target);
+}
+
 export function replace<S = any>(source: S[], index: number, element: S): S[];
 export function replace<S = any>(source: S[], index: number, callbackfn: ((prevElement: S) => S)): S[];
 export function replace<S = any>(source: S[], predicate: ((element: S) => boolean), element: S): S[];
