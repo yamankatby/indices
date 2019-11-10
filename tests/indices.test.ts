@@ -452,29 +452,3 @@ it('can statically remove multi-elements by predicate', () => {
 	Indices.deepFreeze(source);
 	expect(Indices.remove(source, element => element > 3)).toEqual(target);
 });
-
-it('can statically check if the object is an indices object or not', () => {
-	const source = new Indices();
-	expect(Indices.isIndices(source)).toBe(true);
-	expect(Indices.isIndices({})).toBe(false);
-});
-it('can statically deepFreeze an object', () => {
-	const source: { [key: string]: string } = {
-		a: 'a',
-		b: 'b',
-	};
-	Indices.deepFreeze(source);
-	expect(() => source.a = 'z').toThrow();
-});
-it('can statically deepClone an object', () => {
-	const source: { [key: string]: string } = {
-		a: 'a',
-		b: 'b',
-	};
-	const target = Indices.deepClone(source);
-	target.a = 'z';
-	target.c = 'c';
-
-	expect(source).toEqual({ a: 'a', b: 'b' });
-	expect(target).toEqual({ a: 'z', b: 'b', c: 'c' });
-});
