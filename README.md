@@ -37,24 +37,23 @@
 </h2>
 
 ### `push()`
-This method like the original `Array.prototype.push()` method helps you to add an element to the end of the array but without mutating the original array. For example: 
+This method works like `Array.prototype.push()` method which allows you to insert an element to the end of the array but this method does not mutate the original array. For example: 
 ```js
 import { indices } from "indices";
 
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list)
-  .push("🐈")
-  .toArray(); // output -> ["🐼", "🐶", "🐑", "🐈"];
+const current = [1, 2, 3];
+const next = indices(list)
+  .push(4)
+  .toArray(); // output -> [1, 2, 3, 4];
 ```
-the `newList` variable will contain the new array and the `list` variable will still as it.
+The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
 
-
-Also, it's allowing you to add multi elements to the end of the array by passing them as a separated argument as following.
+Also, it's possible to insert multi-element to the end of the array using the `push` method by passing them as separate arguments. For example:
 ```js
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list)
-  .push("🐈", "🐓", "🐇")
-  .toArray(); // output -> ["🐼", "🐶", "🐑", "🐈", "🐓", "🐇"];
+const current = [1, 2, 3];
+const next = indices(list)
+  .push(4, 5, 6)
+  .toArray(); // output -> [1, 2, 3, 4, 5, 6];
 ```
 
 ### `unshift()`
