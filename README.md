@@ -14,6 +14,7 @@
 - [⬇️ Installation](#section_installation)
 - [☘️ Examples](#section_examples)
 - [🔌 API](#section_api)
+    - [`push()`](#push_method)
 - [🤝 Contributing](#section_contributing)
 - [💡 FAQ](#section_faq)
 - [👍 Support](#section_support)
@@ -36,24 +37,27 @@
 🔌 API
 </h2>
 
-### `push()`
+<h3 id="push_method">`push()`</h3>
+
 This method works like `Array.prototype.push()` method which allows you to insert an element to the end of the array but this method does not mutate the original array. For example: 
 ```js
 import { indices } from "indices";
 
 const current = [1, 2, 3];
-const next = indices(list)
-  .push(4)
-  .toArray(); // output -> [1, 2, 3, 4];
+const next = indices(current).push(4).toArray();
+
+console.log(current); // output -> [1, 2, 3];
+console.log(next); // output -> [1, 2, 3, 4];
 ```
 The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
 
 Also, it's possible to insert multi-element to the end of the array using the `push` method by passing them as separate arguments. For example:
 ```js
 const current = [1, 2, 3];
-const next = indices(list)
-  .push(4, 5, 6)
-  .toArray(); // output -> [1, 2, 3, 4, 5, 6];
+const next = indices(current).push(4, 5, 6).toArray();
+
+console.log(current); // output -> [1, 2, 3];
+console.log(next); // output -> [1, 2, 3, 4, 5, 6];
 ```
 
 ### `unshift()`
