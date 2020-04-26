@@ -15,6 +15,7 @@
 - [☘️ Examples](#section_examples)
 - [🔌 API](#section_api)
     - [`push()`](#push_method)
+    - [`unshift()`](#unshift_method)
 - [🤝 Contributing](#section_contributing)
 - [💡 FAQ](#section_faq)
 - [👍 Support](#section_support)
@@ -37,7 +38,9 @@
 🔌 API
 </h2>
 
-<h3 id="push_method">`push()`</h3>
+<h3 id="push_method">
+    push()
+</h3>
 
 This method works like `Array.prototype.push()` method which allows you to insert an element to the end of the array but this method does not mutate the original array. For example: 
 ```js
@@ -60,23 +63,29 @@ console.log(current); // output -> [1, 2, 3];
 console.log(next); // output -> [1, 2, 3, 4, 5, 6];
 ```
 
-### `unshift()`
-This method works exactly like the `Array.prototype.unshift()` method which allows you to add an element to the beginning of the array but without mutating the original array. For example:
+<h3 id="unshift_method">
+    unshift()
+</h3>
+
+This method works like `Array.prototype.unshift()` method which allows you to insert an element to the beginning of the array but this method does not mutate the original array. For example: 
 ```js
 import { indices } from "indices";
 
-const list = ["🐶", "🐑", "🐈"];
-const newList = indices(list)
-  .unshift("🐼")
-  .toArray(); // output => ["🐼", "🐶", "🐑", "🐈"];
-```
+const current = [1, 2, 3];
+const next = indices(current).unshift(0).toArray();
 
-As the `push()` method also the `unshift()` method allows you to add multi elements to the beginning of the array by passing the elements as separated argument as following.
+console.log(current); // output -> [1, 2, 3];
+console.log(next); // output -> [0, 1, 2, 3];
+```
+The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
+
+Also, it's possible to insert multi-element to the beginning of the array using the `unshift` method by passing them as separate arguments. For example:
 ```js
-const list = ["🐶", "🐑", "🐈"];
-const newList = indices(list)
-  .unshift("🐼", "🐓", "🐇")
-  .toArray(); // output => ["🐼", "🐓", "🐇", "🐶", "🐑", "🐈"];
+const current = [1, 2, 3];
+const next = indices(current).unshift(-2, -1, 0).toArray();
+
+console.log(current); // output -> [1, 2, 3];
+console.log(next); // output -> [-2, -1, 0, 1, 2, 3];
 ```
 
 ### `pop()`
