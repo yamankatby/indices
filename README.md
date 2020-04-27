@@ -163,32 +163,54 @@ console.log(array3); // output -> [1, 2, 3, 4, 5, 6];
 ```
 **Note:** This method works exactly like `Array.prototype.concat()` method. We just reimplemented it inside the package to be able to use it with the other methods.
 
-### `replace()`
-`replace()` method unlike the other methods has no synonym in the `Array.prototype` object. `replace()` method helps you to replace an element in the array with another one that you pass. `replace()` method takes two arguments. First argument the index of the element that you want to replace and the second argument the new element. For example:
+<h3 id="replace_method">
+    replace()
+</h3>
+
+This method is the most powerful in the package. It allows you to edit a specific element inside an array by replacing it with a new one. This method takes two parameters first one is the `index` of the element you want to replace, and the second one is the `new element`. For example:
 ```js
 import { indices } from "indices";
 
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list)
-  .replace(0, "🐈")
-  .toArray(); // output => ["🐈", "🐶", "🐑"];
+const current = ["a", "b", "c"];
+const next = indices(current).replace(0, "d").toArray();
+
+console.log(current); // output -> ["a", "b", "c"];
+console.log(next); // output -> ["d", "b", "c"];
 ```
 
-If you don't know the exact index of the element that you want to replace you can pass a predicate function as the first argument. The predicate funtion is a function to execute on each value in the array until the function returns true, indicating that the satisfying element was found. The `replace()` method will use the index of that element as the `index` argument.
+If you don't know the exact `index` of the element that you want to replace, You can pass a `predicate function` as the first parameter.
 ```js
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list)
-  .replace(animal => animal === "🐼", "🐈")
-  .toArray(); // output => ["🐈", "🐶", "🐑"];
+const current = ["ab", "bc", "cd"];
+const next = indices(current).replace(element => element.startsWith("a"), "de").toArray();
+
+console.log(current); // output -> ["ab", "bc", "cd"];
+console.log(next); // output -> ["de", "bc", "cd"];
 ```
 
-If you calculate your new element with an expensive operation, and you want to use the previous element to calculate the new one you can pass a callback function as the second argument to the `replace()` method. The callback function is a function takes the previous element as the first argument and returns the new element.
+Also, if you are calculating the new element with an expensive operation, and you want to use the previous element to calculate the new one you can pass a callback function as the second parameter to the `replace()` method.
 ```js
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list)
-  .replace(animal => animal === "🐼", prevAnimal => prevAnimal + "🐈")
-  .toArray(); // output => ["🐼🐈", "🐶", "🐑"];
+const current = ["ab", "bc", "cd"];
+const next = indices(current).replace(0, prevElement => prevElement + "c").toArray();
+
+console.log(current); // output -> ["ab", "bc", "cd"];
+console.log(next); // output -> ["abc", "bc", "cd"];
 ```
+
+<h3 id="insertAfter_method">
+    insertAfter()
+</h3>
+
+<h3 id="insertBefore_method">
+    insertBefore()
+</h3>
+
+<h3 id="remove_method">
+    remove()
+</h3>
+
+<h3 id="replace_method">
+    replace()
+</h3>
 
 ### `insertAfter()`
 ```js
