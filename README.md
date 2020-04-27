@@ -45,9 +45,7 @@
 🔌 API
 </h2>
 
-<h3 id="push_method">
-    push()
-</h3>
+### `push()`
 
 This method works like `Array.prototype.push()` method which allows you to insert an element to the end of the array but this method does not mutate the original array. For example: 
 ```js
@@ -56,8 +54,8 @@ import { indices } from "indices";
 const current = [1, 2, 3];
 const next = indices(current).push(4).toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [1, 2, 3, 4];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [1, 2, 3, 4];
 ```
 The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
 
@@ -66,13 +64,11 @@ Also, it's possible to insert multi-element to the end of the array using the `p
 const current = [1, 2, 3];
 const next = indices(current).push(4, 5, 6).toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [1, 2, 3, 4, 5, 6];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [1, 2, 3, 4, 5, 6];
 ```
 
-<h3 id="unshift_method">
-    unshift()
-</h3>
+### `unshift()`
 
 This method works like `Array.prototype.unshift()` method which allows you to insert an element to the beginning of the array but this method does not mutate the original array. For example: 
 ```js
@@ -81,8 +77,8 @@ import { indices } from "indices";
 const current = [1, 2, 3];
 const next = indices(current).unshift(0).toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [0, 1, 2, 3];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [0, 1, 2, 3];
 ```
 The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
 
@@ -91,13 +87,11 @@ Also, it's possible to insert multi-element to the beginning of the array using 
 const current = [1, 2, 3];
 const next = indices(current).unshift(-2, -1, 0).toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [-2, -1, 0, 1, 2, 3];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [-2, -1, 0, 1, 2, 3];
 ```
 
-<h3 id="pop_method">
-    pop()
-</h3>
+### `pop()`
 
 This method works like `Array.prototype.pop()` method which allows you to remove an element from the end of the array but this method does not mutate the original array. For example: 
 ```js
@@ -106,8 +100,8 @@ import { indices } from "indices";
 const current = [1, 2, 3];
 const next = indices(current).pop().toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [1, 2];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [1, 2];
 ```
 The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
 
@@ -116,13 +110,11 @@ Also, it's possible to remove multi-element from the end of the array using the 
 const current = [1, 2, 3];
 const next = indices(current).pop(2).toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [1];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [1];
 ```
 
-<h3 id="shift_method">
-    shift()
-</h3>
+### `shift()`
 
 This method works like `Array.prototype.shift()` method which allows you to remove an element from the beginning of the array but this method does not mutate the original array. For example: 
 ```js
@@ -131,8 +123,8 @@ import { indices } from "indices";
 const current = [1, 2, 3];
 const next = indices(current).shift().toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [2, 3];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [2, 3];
 ```
 The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
 
@@ -141,13 +133,11 @@ Also, it's possible to remove multi-element from the beginning of the array usin
 const current = [1, 2, 3];
 const next = indices(current).shift(2).toArray();
 
-console.log(current); // output -> [1, 2, 3];
-console.log(next); // output -> [3];
+console.log(current); // output => [1, 2, 3];
+console.log(next); // output => [3];
 ```
 
-<h3 id="concat_method">
-    concat()
-</h3>
+### `concat()`
 
 The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array. For example:
 ```js
@@ -157,15 +147,13 @@ const array1 = [1, 2, 3];
 const array2 = [4, 5, 6];
 const array3 = indices(array1).concat(array2).toArray();
 
-console.log(array1); // output -> [1, 2, 3];
-console.log(array2); // output -> [4, 5, 6];
-console.log(array3); // output -> [1, 2, 3, 4, 5, 6];
+console.log(array1); // output => [1, 2, 3];
+console.log(array2); // output => [4, 5, 6];
+console.log(array3); // output => [1, 2, 3, 4, 5, 6];
 ```
 **Note:** This method works exactly like `Array.prototype.concat()` method. We just reimplemented it inside the package to be able to use it with the other methods.
 
-<h3 id="replace_method">
-    replace()
-</h3>
+### `replace()`
 
 This method is the most powerful in the package. It allows you to edit a specific element inside an array by replacing it with a new one. This method takes two parameters first one is the `index` of the element you want to replace, and the second one is the `new element`. For example:
 ```js
@@ -174,8 +162,8 @@ import { indices } from "indices";
 const current = ["a", "b", "c"];
 const next = indices(current).replace(0, "d").toArray();
 
-console.log(current); // output -> ["a", "b", "c"];
-console.log(next); // output -> ["d", "b", "c"];
+console.log(current); // output => ["a", "b", "c"];
+console.log(next); // output => ["d", "b", "c"];
 ```
 
 If you don't know the exact `index` of the element that you want to replace, You can pass a `predicate function` as the first parameter.
@@ -183,8 +171,8 @@ If you don't know the exact `index` of the element that you want to replace, You
 const current = ["ab", "bc", "cd"];
 const next = indices(current).replace(element => element.startsWith("a"), "de").toArray();
 
-console.log(current); // output -> ["ab", "bc", "cd"];
-console.log(next); // output -> ["de", "bc", "cd"];
+console.log(current); // output => ["ab", "bc", "cd"];
+console.log(next); // output => ["de", "bc", "cd"];
 ```
 
 Also, if you are calculating the new element with an expensive operation, and you want to use the previous element to calculate the new one you can pass a callback function as the second parameter to the `replace()` method.
@@ -192,13 +180,11 @@ Also, if you are calculating the new element with an expensive operation, and yo
 const current = ["ab", "bc", "cd"];
 const next = indices(current).replace(0, prevElement => prevElement + "c").toArray();
 
-console.log(current); // output -> ["ab", "bc", "cd"];
-console.log(next); // output -> ["abc", "bc", "cd"];
+console.log(current); // output => ["ab", "bc", "cd"];
+console.log(next); // output => ["abc", "bc", "cd"];
 ```
 
-<h3 id="insert_after_method">
-    insertAfter()
-</h3>
+### `insertAfter()`
 
 This method helps you to insert an element after a specific element by passing the index of the element you want to replace as the first parameter and the element you want to insert as the second parameter. For example:
 ```js
@@ -207,8 +193,8 @@ import { indices } from "indices";
 const current = ["a", "c", "d"];
 const next = indices(current).insertAfter(0, "b").toArray();
 
-console.log(current); // output -> ["a", "c", "d"];
-console.log(next); // output -> ["a", "b", "c", "d"];
+console.log(current); // output => ["a", "c", "d"];
+console.log(next); // output => ["a", "b", "c", "d"];
 ```
 
 If you don't know the exact `index` of the element that you want to insert an element after it, You can pass a `predicate function` as the first parameter.
@@ -216,55 +202,13 @@ If you don't know the exact `index` of the element that you want to insert an el
 const current = ["ab", "cd", "de"];
 const next = indices(current).insertAfter(element => element.startsWith("a"), "bc").toArray();
 
-console.log(current); // output -> ["ab", "cd", "de"];
-console.log(next); // output -> ["ab", "bc", "cd", "de"];
-```
-
-<h3 id="insert_before_method">
-    insertBefore()
-</h3>
-
-
-
-<h3 id="remove_method">
-    remove()
-</h3>
-
-### `insertAfter()`
-```js
-import { indices } from "indices";
-
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list).insertAfter(1, "🐈").toArray(); // output => ["🐼", "🐶", "🐈", "🐑"];
-```
-
-**Also you can it a expression**
-```js
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list).insertAfter(animal => animal === "🐶", "🐈").toArray(); // output => ["🐼", "🐶", 🐈", "🐑"];
+console.log(current); // output => ["ab", "cd", "de"];
+console.log(next); // output => ["ab", "bc", "cd", "de"];
 ```
 
 ### `insertBefore()`
-```js
-import { indices } from "indices";
-
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list).insertBefore(1, "🐈").toArray(); // output => ["🐼", "🐈", "🐶", "🐑"];
-```
 
 ### `remove()`
-```js
-import { indices } from "indices";
-
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list).remove(2).toArray(); // output => ["🐼", "🐶"];
-```
-
-**Also you can it a expression**
-```js
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list).remove(animal => animal === "🐑").toArray(); // output => ["🐼", "🐶"];
-```
 
 <h2 id='section_contributing'>
 🤝 Contributing
