@@ -14,9 +14,10 @@
 - [⬇️ Installation](#section_installation)
 - [☘️ Examples](#section_examples)
 - [🔌 API](#section_api)
-    - [push()](#push_method)
-    - [unshift()](#unshift_method)
-    - [pop()](#pop_method)
+    - [push()](#push_method) method
+    - [unshift()](#unshift_method) method
+    - [pop()](#pop_method) method
+    - [shift()](#shift_method) method
 - [🤝 Contributing](#section_contributing)
 - [💡 FAQ](#section_faq)
 - [👍 Support](#section_support)
@@ -114,23 +115,29 @@ console.log(current); // output -> [1, 2, 3];
 console.log(next); // output -> [1];
 ```
 
-### `shift()`
-As the `Array.prototype.shift()` method `shift()` method allows you to remove an element from the beginning of the array but without mutating the original array. For example:
+<h3 id="shift_method">
+    shift()
+</h3>
+
+This method works like `Array.prototype.shift()` method which allows you to remove an element from the beginning of the array but this method does not mutate the original array. For example: 
 ```js
 import { indices } from "indices";
 
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list)
-  .shift()
-  .toArray(); // output => ["🐶", "🐑"];
-```
+const current = [1, 2, 3];
+const next = indices(current).shift().toArray();
 
-Also, you can remove multi elements from the beginning of the array by passing the count of the elements those you want to remove as following.
+console.log(current); // output -> [1, 2, 3];
+console.log(next); // output -> [2, 3];
+```
+The `next` variable will contain the new array where the `current` variable still has the same value as initialized.
+
+Also, it's possible to remove multi-element from the beginning of the array using the `shift` method by passing number of elements you want to remove as the first parameter. For example:
 ```js
-const list = ["🐼", "🐶", "🐑"];
-const newList = indices(list)
-  .shift(2)
-  .toArray(); // output => ["🐑"];
+const current = [1, 2, 3];
+const next = indices(current).shift(2).toArray();
+
+console.log(current); // output -> [1, 2, 3];
+console.log(next); // output -> [3];
 ```
 
 ### `concat()`
