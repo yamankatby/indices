@@ -196,20 +196,38 @@ console.log(current); // output -> ["ab", "bc", "cd"];
 console.log(next); // output -> ["abc", "bc", "cd"];
 ```
 
-<h3 id="insertAfter_method">
+<h3 id="insert_after_method">
     insertAfter()
 </h3>
 
-<h3 id="insertBefore_method">
+This method helps you to insert an element after a specific element by passing the index of the element you want to replace as the first parameter and the element you want to insert as the second parameter. For example:
+```js
+import { indices } from "indices";
+
+const current = ["a", "c", "d"];
+const next = indices(current).insertAfter(0, "b").toArray();
+
+console.log(current); // output -> ["a", "c", "d"];
+console.log(next); // output -> ["a", "b", "c", "d"];
+```
+
+If you don't know the exact `index` of the element that you want to insert an element after it, You can pass a `predicate function` as the first parameter.
+```js
+const current = ["ab", "cd", "de"];
+const next = indices(current).insertAfter(element => element.startsWith("a"), "bc").toArray();
+
+console.log(current); // output -> ["ab", "cd", "de"];
+console.log(next); // output -> ["ab", "bc", "cd", "de"];
+```
+
+<h3 id="insert_before_method">
     insertBefore()
 </h3>
 
+
+
 <h3 id="remove_method">
     remove()
-</h3>
-
-<h3 id="replace_method">
-    replace()
 </h3>
 
 ### `insertAfter()`
