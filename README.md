@@ -18,6 +18,11 @@
     - [unshift()](#unshift_method) method
     - [pop()](#pop_method) method
     - [shift()](#shift_method) method
+    - [concat()](#concat_method) method
+    - [replace()](#replace_method) method
+    - [insertAfter()](#insert_after_method) method
+    - [insertBefore()](#insert_before_method) method
+    - [remove()](#remove_method) method
 - [🤝 Contributing](#section_contributing)
 - [💡 FAQ](#section_faq)
 - [👍 Support](#section_support)
@@ -140,7 +145,24 @@ console.log(current); // output -> [1, 2, 3];
 console.log(next); // output -> [3];
 ```
 
-### `concat()`
+<h3 id="concat_method">
+    concat()
+</h3>
+
+The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array. For example:
+```js
+import { indices } from "indices";
+
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const array3 = indices(array1).concat(array2).toArray();
+
+console.log(array1); // output -> [1, 2, 3];
+console.log(array2); // output -> [4, 5, 6];
+console.log(array3); // output -> [1, 2, 3, 4, 5, 6];
+```
+**Note:** This method works exactly like `Array.prototype.concat()` method. We just reimplemented it inside the package to be able to use it with the other methods.
+
 ### `replace()`
 `replace()` method unlike the other methods has no synonym in the `Array.prototype` object. `replace()` method helps you to replace an element in the array with another one that you pass. `replace()` method takes two arguments. First argument the index of the element that you want to replace and the second argument the new element. For example:
 ```js
